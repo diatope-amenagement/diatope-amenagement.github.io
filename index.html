@@ -1,7 +1,19 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>Diatope</h1>
-<p>Site en construction... Bientôt disponible, très bientôt !</p>
-</body>
-</html>
+---
+layout: default
+title: Diatope - L'aménagement dans toutes ses dimensions
+---
+
+<!-- Cette section présente les x derniers post  -->
+<section>
+  {% for post in site.posts %}
+  <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+  {% endfor %}
+</section>
+<!-- Cette section présente la liste de tags associés à l'ensemble des posts -->
+<section>
+  <ul>
+    {% for tag in site.tags %}
+    <li>{{ tag[0] }}</li>
+    {% endfor %}
+  </ul>
+</section>

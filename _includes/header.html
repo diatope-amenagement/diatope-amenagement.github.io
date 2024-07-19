@@ -4,11 +4,9 @@
     <!-- Le menu de navigation principal correspondant aux catégories -->
     <nav>
         <ul>
-            <li>Analyse</li>
-            <li>Critique</li>
-            <li>Exploration</li>
-            <li>Revue</li>
-            <li>Programme</li>
+            {% for item in site.data.navigation %}
+            <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+            {% endfor %}
         </ul>
     </nav>
 </header>

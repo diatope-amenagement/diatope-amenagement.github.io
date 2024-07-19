@@ -1,0 +1,3 @@
+# ignore tout ce que se trouve dans _site et .jekyll-cache pour la synchro avec GitHub
+/_site
+/.jekyll-cache

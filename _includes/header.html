@@ -1,11 +1,11 @@
 <header>
     <!-- La bannière du site : une image-titre ou un titre en police stylisée avec une image -->
-    <h1>Diatope - L'aménagement dans toutes ses dimensions</h1>
+    <h1>Diatope - Géopolitiques de l'aménagement</h1>
     <!-- Le menu de navigation principal correspondant aux catégories -->
     <nav>
         <ul>
-            {% for item in site.data.navigation %}
-            <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+            {% for category in site.categories %}
+            <li>{{ category[0] }}</li>
             {% endfor %}
         </ul>
     </nav>

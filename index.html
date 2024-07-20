@@ -3,18 +3,21 @@ layout: default
 title: Diatope - Géopolitiques de l'aménagement
 ---
 
-<!-- Cette section présente les x derniers post  -->
+<!-- Cette section présente les 5 derniers articles  -->
 <section>
-  {% for post in site.posts %}
+  {% for post in site.posts limit: 5 %}
   <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
   <p>le {{ post.date }} par {{ post.author }}</p>
   {% endfor %}
 </section>
-<!-- Cette section présente la liste de tags associés à l'ensemble des posts -->
+<!--
+Cette section présente la liste de tags associés à l'ensemble des articles.
+Le nombre d'article sous chaque tag est numéroté. Chaque lien renvoit vers la page d'archive de tag correspondante.
+-->
 <section>
   <ul>
     {% for tag in site.tags %}
-    <li>{{ tag[0] }} ({{ tag[1].size }})</li>
+    <li><a href="/archives/tag/{{ tag[0] }}/">{{ tag[0] }} ({{ tag[1].size }})</a></li>
     {% endfor %}
   </ul>
 </section>

@@ -1,12 +1,17 @@
 <header>
     <!-- La bannière du site : une image-titre ou un titre en police stylisée avec une image -->
     <h1>Diatope - Géopolitiques de l'aménagement</h1>
-    <!-- Le menu de navigation principal correspondant aux catégories -->
+    <!--
+    Le menu de navigation principal correspondant aux catégories 
+     Chaque lien renvoie vers la page d'archive associée à la catégorie en question, pour toutes les catégories du site.
+     On ajoute la page A propos à part.
+     -->
     <nav>
         <ul>
             {% for category in site.categories %}
-            <li>{{ category[0] }}</li>
+            <li><a href="/archives/category/{{ category[0] | slugify }}/">{{ category[0] }}</a></li>
             {% endfor %}
+            <li><a href="/about.html">A propos</a></li>
         </ul>
     </nav>
 </header>

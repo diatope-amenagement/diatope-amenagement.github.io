@@ -11,3 +11,18 @@ jekyll-archives:
   permalinks:
     tag: archives/tag/:name/
     category: archives/category/:name/
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      excerpt_separator: "<!--intro-->"

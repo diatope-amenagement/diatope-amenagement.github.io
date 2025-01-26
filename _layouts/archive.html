@@ -1,16 +1,19 @@
 ---
 layout: main
-title: Diatope - L'aménagement dans toutes ses dimensions
 ---
-<!-- Section principale exposant les dernières actualités du site. Elle présente les 3 derniers articles notamment au moyen 
- de leurs titres, de leurs catégories, de leurs tags et de leurs images. Le dernier article est mis en avant en présentant 
- également son résumé -->
+<!-- Section principale de la page d'archive (categorie ou tag) exposant la totalité des articles relevant de la categorie 
+ ou du tag choisi  -->
 <section>
     <header>
-        <h2>Dernières actualités</h2>
+        {% case page.type %}
+        {% when "category" %}
+        <h2>| {{ page.title }} |</h2>
+        {% when "tag" %}
+        <h2>#{{ page.title }}</h2>
+        {% endcase %}
     </header>
     <ul>
-        {% for post in site.posts limit:3 %}
+        {% for post in page.posts %}
         {% assign time = post.date | date: "%Y-%m-%d" %}
         {% assign date = post.date | date: "%d/%m/%Y" %}
         {% assign category-name = post.categories[0] %}
@@ -29,24 +32,10 @@ title: Diatope - L'aménagement dans toutes ses dimensions
                     {{ post.author }}, le <time datetime="{{ time }}">{{ date }}</time>
                 </p>
             </hgroup>
-            {% if forloop.index == 1 %}
             <p>
                 {{ post.excerpt }}
             </p>
-            {% endif %}
         </li>
         {% endfor %}
     </ul>
 </section>
-<!-- Section secondaire exposant l'ensemble des tags du site ainsi que le nombre d'articles correspondant -->
-<nav aria-labelledby="menu des tags">
-    <h2>Tous les #tags</h2>
-    <ul>
-        {% for tag in site.tags %}
-        {% assign tag-name = tag[0] %}
-        {% assign tag-slug = tag[0] | slugify %}
-        {% assign tag-count = tag[1].size %}
-        <li><a href="/tags/{{ tag-slug }}/">#{{ tag-name }}[{{ tag-count }}]</a></li>
-        {% endfor %}
-    </ul>
-</nav>

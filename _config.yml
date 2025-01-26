@@ -1,28 +1,14 @@
 plugins:
-  - jekyll-archives
+- jekyll-archives
+
+excerpt_separator: <!-- Plus -->
 
 jekyll-archives:
   enabled:
-    - tags
     - categories
-  layouts:
-    tag : tag-archive
-    category: category-archive
+    - tags
+  layout: archive
   permalinks:
-    tag: archives/tag/:name/
-    category: archives/category/:name/
+    category: '/categories/:name/'
+    tag: '/tags/:name/'
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "default"
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      layout: "post"
-      excerpt_separator: "<!--intro-->"

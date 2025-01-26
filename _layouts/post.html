@@ -1,21 +1,27 @@
 ---
-layout: default
+layout: main
 ---
+{% assign time = page.date | date: "%Y-%m-%d" %}
+{% assign date = page.date | date: "%d/%m/%Y" %}
+{% assign category-name = page.categories[0] %}
+{% assign category-slug = page.categories[0] | slugify %}
 <article>
     <header>
-        <p><a href="/archives/category/{{ page.category | slugify }}">|{{ page.category }}|</a></p>
-        <ul>
-            {% for tag in page.tags %}
-            <li><a href="/archives/tag/{{ tag | slugify }}">#{{ tag }}</a></li>
-            {% endfor %}
-        </ul>
-        <h2>{{ page.title }}</h2>
-        <adress>
-            {{ page.author }}
-        </adress>
-        <p>
-            le <time datetime="{{ page.date | date: " %F" }}">{{ page.date | date: "%d/%m/%Y" }}</time>
-        </p>
+        <hgroup>
+            <p>
+                <a href="/categories/{{ category-slug }}/">| {{ category-name }} |</a>
+                {% for tag in page.tags %}
+                {% assign tag-slug = tag | slugify %}
+                <a href="/tags/{{ tag-slug }}/"> #{{ tag }}</a>
+                {% endfor %}
+             </p>
+            <h2>{{ page.title }}</h2>
+            <p>
+                {{ page.author }}, le <time datetime="{{ time }}">{{ date }}</time>
+            </p>
+        </hgroup>
     </header>
-    {{ content }}
+    <section>
+        {{ content }}
+    </section>
 </article>

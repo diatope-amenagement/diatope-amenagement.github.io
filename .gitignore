@@ -1,4 +1,3 @@
-# ignore tout ce que se trouve dans _site et .jekyll-cache ainsi que le fichier gemfile.lock pour la synchro avec GitHub
 /_site
 /.jekyll-cache
 *.lock

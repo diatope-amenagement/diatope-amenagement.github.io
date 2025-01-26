@@ -1,11 +1,7 @@
-# frozen_string_literal: true
+source 'https://rubygems.org'
 
-source "https://rubygems.org"
+gem "jekyll"
 
-# gem "rails"
-
-# gem "jekyll"
-
-gem "github-pages", "~> 231", group: :jekyll_plugins
-gem 'jekyll-archives', group: :jekyll_plugins
-gem "webrick", "~> 1.8"
+group :jekyll_plugins do
+  gem "jekyll-archives"
+end

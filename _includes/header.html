@@ -1,15 +1,15 @@
 <header>
-    <!-- La bannière du site : une image-titre ou un titre en police stylisée avec une image -->
-    <h1>Diatope - Géopolitiques de l'aménagement</h1>
-    <!--Le menu de navigation principal correspondant aux catégories 
-     Chaque lien renvoie vers la page d'archive associée à la catégorie en question, pour toutes les catégories du site.
-     On ajoute la page A propos à part.-->
-    <nav>
+    <h1><a href="{{ site.url }}">Diatope - L'aménagement dans toutes ses dimensions</a></h1>
+    <!-- Le menu de navigation du site. Renvoie vers la page d'archives relative à chaque catégorie ainsi que vers une page "A propos".
+     Chaque page d'archives est générée à l'aide du plugin jekyll-archives -->
+    <nav aria-labelledby="menu principal">
         <ul>
             {% for category in site.categories %}
-            <li><a href="/archives/category/{{ category[0] | slugify }}/">{{ category[0] }}</a></li>
+            {% assign category-name = category[0] %}
+            {% assign category-slug = category[0] | slugify %}
+            <li><a href="/categories/{{ category-slug }}/">{{ category-name }}</a></li>
             {% endfor %}
-            <li><a href="/about.html">A propos</a></li>
+            <li><a href="about.html">A propos</a></li>
         </ul>
     </nav>
 </header>
